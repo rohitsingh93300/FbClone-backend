@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin:'https://fb-clone-frontend-nine.vercel.app',
+    origin:['http://localhost:5173', 'https://fb-clone-frontend-nine.vercel.app'],
     credentials:true
 }))
 
@@ -27,6 +27,6 @@ app.use('/api/v1/comment', commentRoute)
 
 
 app.listen(PORT,()=>{
-    console.log(`Server listen at port ${PORT}`);
     connectDB()
+    console.log(`Server listen at port ${PORT}`);
 })
